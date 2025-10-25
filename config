@@ -1,0 +1,26 @@
+include $HOME/.config/sway/config.d/gaps.conf
+include $HOME/.config/sway/config.d/keybinds.conf
+
+set $mod Mod4
+floating_modifier $mod
+default_border pixel 4
+
+font pango:Hack Nerd Font 10
+
+input * {
+	xkb_layout "de"
+}
+
+#scratchpads
+# Toggle dropdown terminal
+bindsym $mod+t exec --no-startup-id "sway-scratchpad -tmt -atc alacritty"
+# Toggle dropdown spotify
+bindsym $mod+Shift+s exec --no-startup-id 'sway-scratchpad -d 800x700 -tmt -atc firefox --new-window https://open.spotify.com'
+
+bar {
+	swaybar_command waybar
+}
+
+output "*" bg ~/.wallpaper/anime_1.png fill
+
+exec alacritty
